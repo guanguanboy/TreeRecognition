@@ -31,11 +31,11 @@ transform_test = torchvision.transforms.Compose([
                                      [0.229, 0.224, 0.225])])
 
 train_ds = torchvision.datasets.ImageFolder(
-        '/data1/liguanlin/projects/handgesturedetion/datasets/handgesture_rgb_dataset_splited/train',
+        './datasets/train',
         transform=transform_train) 
 
 test_ds = torchvision.datasets.ImageFolder(
-        '/data1/liguanlin/projects/handgesturedetion/datasets/handgesture_rgb_dataset_splited/test',
+        './datasets/test',
         transform=transform_test) 
 
 train_iter = DataLoader(train_ds, batch_size, shuffle=True, drop_last=True)
@@ -70,8 +70,8 @@ print(model)
 learning_rate = 3e-4
 weight_decay = 1e-3
 num_epoch = 50
-model_path = './resnet34_model.pt'
-
+#model_path = './resnet34_model.pt'
+model_path = './pretrained_resnet/resnet34-b627a593.pth'
 
 # For the classification task, we use cross-entropy as the measurement of performance.
 criterion = nn.CrossEntropyLoss()
