@@ -31,11 +31,11 @@ transform_test = torchvision.transforms.Compose([
                                      [0.229, 0.224, 0.225])])
 
 train_ds = torchvision.datasets.ImageFolder(
-        './datasets/train',
+        './TreeRecognition_datasets/train',
         transform=transform_train) 
 
 test_ds = torchvision.datasets.ImageFolder(
-        './datasets/test',
+        './TreeRecognition_datasets/test',
         transform=transform_test) 
 
 train_iter = DataLoader(train_ds, batch_size, shuffle=True, drop_last=True)
@@ -58,13 +58,13 @@ def get_net(devices):
 
 # 看一下是在cpu还是GPU上
 def get_device():
-    return 'cuda' if torch.cuda.is_available() else 'cpu'
+    return 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 device = get_device()
 print(device)
 
 model = get_net([0,1])
-print(model)
+#print(model)
 
 # 超参数
 learning_rate = 3e-4
