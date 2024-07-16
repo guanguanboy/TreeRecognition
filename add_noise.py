@@ -29,6 +29,6 @@ input_folder = '/data/liguanlin/codes/project212/TreeRecognition/datasets/DBS_no
 output_folder = '/data/liguanlin/codes/project212/TreeRecognition/datasets/DBS_noisy50/train/noisy'
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
-noise_level = 25
+noise_level = 50
 
 process_images(input_folder, output_folder, noise_level)
